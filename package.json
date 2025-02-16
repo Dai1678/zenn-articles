@@ -19,5 +19,9 @@
   "homepage": "https://github.com/Dai1678/zenn-articles#readme",
   "dependencies": {
     "zenn-cli": "^0.1.158"
+  },
+  "devDependencies": {
+    "textlint": "^14.4.2",
+    "textlint-rule-preset-ja-technical-writing": "^12.0.2"
   }
 }
