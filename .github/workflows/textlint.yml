@@ -36,5 +36,5 @@ jobs:
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          cat textlint.log \
+          cat changed_files.txt \
           | reviewdog -f=checkstyle -name="textlint" -reporter=github-pr-review
