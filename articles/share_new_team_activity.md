@@ -3,7 +3,7 @@ title: "新しい開発チームに入ったらやっておくべきたった一
 emoji: "😽"
 type: "idea" # tech: 技術記事 / idea: アイデア
 topics: ["チーム", "学習", "初心者", "ポエム"]
-published: false
+published: true
 ---
 
 こんにちは、宮本（社内ではDannyと呼ばれています）です。  
