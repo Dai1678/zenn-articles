@@ -3,7 +3,7 @@ title: "Google Playの自動保護機能に引っかかったらどうなるの�
 emoji: "😽"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["Android", "Google Play"]
-published: false
+published: true
 ---
 
 ## はじめに
