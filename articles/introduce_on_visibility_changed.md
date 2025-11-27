@@ -3,7 +3,7 @@ title: "onVisibilityChanged APIで作るImpression log処理のススメ"
 emoji: "😽"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["Android", "jetpackcompose"]
-published: false
+published: true
 ---
 
 この記事は TimeTree Advent Calendar 2025 の2日目の記事です。
