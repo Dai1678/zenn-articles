@@ -3,7 +3,8 @@ title: "onVisibilityChanged APIで作るImpression log処理のススメ"
 emoji: "😽"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["Android", "jetpackcompose"]
-published: false
+published: true
+published_at: 2025-12-02 10:00
 ---
 
 この記事は TimeTree Advent Calendar 2025 の2日目の記事です。
@@ -127,7 +128,7 @@ onVisibilityChanged APIを使ってCard Composableの可視測定をしました
 Zennでは動画のアップロードができないため、画面操作とAndroid StudioのLog出力を収録した動画を以下のYoutube動画リンクから確認できます。<br>
 https://youtu.be/a8ahrTC3PDg
 
-![compose_visibility_changed_sample.png](../images/introduce_on_visibility_changed/compose_visibility_changed_sample.png)
+![](/images/introduce_on_visibility_changed/compose_visibility_changed_sample.png)
 
 サンプルアプリのソースコードは[こちらのGithubリポジトリ](https://github.com/Dai1678/ComposeVisibilitySample)にあります。<br>
 
