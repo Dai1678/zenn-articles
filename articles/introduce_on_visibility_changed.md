@@ -40,7 +40,8 @@ Box(
 
 - 画面サイズやスクロールコンテナの情報を別途取得する必要がある
 - 可視性の割合計算を自分で実装しなければならない
-- 一定時間表示された場合の判定にタイマー処理が必要高頻度で呼ばれるため、適切なデバウンス処理が必須
+- 一定時間表示された場合の判定にタイマー処理が必要
+- 高頻度で呼ばれるため、適切なデバウンス処理が必須
 - コードが複雑になりがちで、バグが混入しやすい
 
 ## 可視性追跡が必要となるユースケース例
@@ -128,13 +129,13 @@ https://youtu.be/a8ahrTC3PDg
 
 ![compose_visibility_changed_sample.png](../images/introduce_on_visibility_changed/compose_visibility_changed_sample.png)
 
-サンプルアプリのソースコードはこちらのGithubリポジトリにあります。<br>
+サンプルアプリのソースコードは[こちらのGithubリポジトリ](https://github.com/Dai1678/ComposeVisibilitySample)にあります。<br>
 
 ### viewportBoundsパラメータの役割
 
 viewportBoundsは、可視性判定の基準となるビューポート（表示領域）を指定するパラメータです。
 
-```ImageListScreen.kt
+```kotlin
 // ImageListScreen.kt
 val viewport = remember { LayoutBoundsHolder() }
 
@@ -153,7 +154,7 @@ LazyColumn(
 }
 ```
 
-```ImageCard.kt
+```kotlin
 // ImageCard.kt
 .onVisibilityChanged(
     viewportBounds = viewport,  // ←このビューポート内での可視性を判定
