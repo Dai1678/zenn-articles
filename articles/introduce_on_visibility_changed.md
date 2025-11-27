@@ -11,7 +11,9 @@ published: false
 こんにちは、TimeTreeでAndroidエンジニアをしているDannyです。
 
 Jetpack Compose 1.8で、画面上の要素の可視性を効率的に追跡するための新しいAPIが導入されました。<br>
-従来、LazyListやスクロール可能なコンテンツ内での要素の表示状態を監視するには、複雑な実装が必要でしたが、onVisibilityChanged、onFirstVisible、onLayoutRectChangedといった新しいModifierにより、広告等のインプレッション計測や動画を自動再生するなどの一般的なユースケースをシンプルに実装できるようになりました。<br>
+従来、LazyListやスクロール可能なコンテンツ内での要素の表示状態を監視するには、複雑な実装が必要でした。<br>
+しかし、onVisibilityChanged、onFirstVisible、onLayoutRectChangedといった新しいModifierにより、広告等のインプレッション計測や動画の自動再生などの一般的なユースケースをシンプルに実装できるようになりました。
+
 本記事では、これらの新しいAPIの基本概念から活用方法を紹介します。
 
 ## 従来の可視性追跡の課題
@@ -65,7 +67,7 @@ Jetpack Compose UI 1.8では、可視性追跡のための3つの新しいModifi
 ### onLayoutRectChanged - 基盤となる位置追跡API
 要素の画面上での矩形（Rect）が変化したときに通知を受け取る低レベルAPIです。スクロールやレイアウト変更による位置変化を効率的に追跡できます。
 
-パラメータでthrottleとdebounceをミリ秒単位で設定できるため、onGloballyPositionedを使うよりもパフォーマンス制御が細かく行えることが利点です。
+パラメータでthrottleとdebounceをミリ秒単位で設定できます。onGloballyPositionedを使うよりもパフォーマンス制御を細かく行えることが利点です。
 
 [リファレンス](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/package-summary#(androidx.compose.ui.Modifier).onLayoutRectChanged(kotlin.Long,kotlin.Long,kotlin.Function1))
 
@@ -104,7 +106,7 @@ Modifier.onVisibilityChanged(
 
 ### onFirstVisible - 初回表示の検出
 
-要素が初めて画面に表示されたときに一度だけ通知します。初回表示時のみログを送信したい場合などに便利です。
+要素が初めて画面に表示されたときに一度だけ通知します。初回表示時のみログを送信したい場合などで便利です。
 
 [リファレンス](https://developer.android.com/reference/kotlin/androidx/compose/ui/layout/package-summary#(androidx.compose.ui.Modifier).onFirstVisible(kotlin.Long,kotlin.Float,androidx.compose.ui.layout.LayoutBoundsHolder,kotlin.Function0))
 
@@ -119,7 +121,7 @@ Modifier.onFirstVisible(
 
 ## 実際の動作
 
-onVisibilityChanged APIを使ってCard Composableの可視測定を行いました。
+onVisibilityChanged APIを使ってCard Composableの可視測定をしました。
 
 Zennでは動画のアップロードができないため、画面操作とAndroid StudioのLog出力を収録した動画を以下のYoutube動画リンクから確認できます。<br>
 https://youtu.be/a8ahrTC3PDg
@@ -163,7 +165,8 @@ LazyColumn(
 viewportBoundsが未設定の場合、デフォルトでは画面全体を基準にminFractionVisibleの判定が行われます。<br>
 LazyColumnがTopAppBarの下にある場合でも、画面上端からの位置で判定されます。
 
-viewportBoundsをLazyColumnに紐づけてonVisibilityChanged APIのパラメータに指定すると、以下の図のようにLazyColumnの範囲で可視性が判定され、実際の表示領域に基づくようになります。
+viewportBoundsをLazyColumnへ紐づけてonVisibilityChanged APIのパラメータとして指定すると、LazyColumnの範囲で可視性が判定されます。以下の図のように、実際の表示領域に基づく判定が行われるようになります。
+
 ```
   ┌─────────────────────┐
   │  TopAppBar         │ ← この部分は除外
@@ -179,7 +182,7 @@ viewportBoundsをLazyColumnに紐づけてonVisibilityChanged APIのパラメー
 
 ## おわりに
 
-Jetpack Compose UI 1.8で導入された画面上の要素の可視性を効率的に追跡するための新しいAPIについて解説を行いました。
+Jetpack Compose UI 1.8で導入された画面上の要素の可視性を効率的に追跡するための新しいAPIについて解説しました。
 
 > リストのそれぞれのアイテムの50%が1秒以上表示されたらログ送信を発火
 
