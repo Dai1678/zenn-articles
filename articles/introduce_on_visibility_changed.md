@@ -7,7 +7,7 @@ published: true
 published_at: 2025-12-02 10:00
 ---
 
-この記事は TimeTree Advent Calendar 2025 の2日目の記事です。
+この記事は [TimeTree Advent Calendar 2025](https://qiita.com/advent-calendar/2025/timetree) の2日目の記事です。
 
 こんにちは、TimeTreeでAndroidエンジニアをしているDannyです。
 
